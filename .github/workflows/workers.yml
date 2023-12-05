@@ -21,7 +21,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-                  docker build -t hickoom/voting-app:canary .
+                  docker build -t hickoom/voting-app:canary voting-app-helm/ 
                   docker push hickoom/voting-app:canary
 
       - name: Deploy Canary
