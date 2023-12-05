@@ -21,8 +21,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-                  docker build -t hickoom/votingapp:canary .
-                  docker push hickoom/votingapp:canary
+                  docker build -t hickoom/voting-app:canary .
+                  docker push hickoom/voting-app:canary
 
       - name: Deploy Canary
         run: |
@@ -42,5 +42,5 @@ jobs:
 
       - name: Promote Canary
         run: |
-          helm upgrade --install voting-app ./voting-app-chart --set image.repository=hickoom/votingapp --set image.tag=v1
+          helm upgrade --install voting-app ./voting-app-chart --set image.repository=hickoom/voting-app --set image.tag=v1
           helm delete voting-app-canary --purge
