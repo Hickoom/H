@@ -19,6 +19,9 @@ jobs:
           sudo apt-get -y install docker
           docker --version  # Vérifiez si Docker est installé correctement
 
+      - name: Docker login
+        run:      docker login
+
       - name: Build Docker image
         run: |
                   docker build -t hickoom/voting-app:canary voting-app-helm/ 
