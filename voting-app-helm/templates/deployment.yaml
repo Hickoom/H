@@ -36,10 +36,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            name: REDIS_HOST
+          name: REDIS_HOST
             value: {{ .Values.redis.host }}:{{ .Values.redis.port}}
-            name: REDIS_PASSWORD"
+          name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: "global.redis.password"
+              key: "plop"
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
