@@ -10,4 +10,4 @@ spec:
       image: hickoom/voting-app:v1
       env:
         - name: REDIS
-          value: "Tout est ok"
+          value: ""

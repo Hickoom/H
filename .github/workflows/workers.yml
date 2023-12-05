@@ -13,8 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Docker
-        uses: actions/setup-docker@v2
+    steps:
+          - name: Set up Docker
+            uses: docker://docker/setup-docker:v2
+            with:
+              dockerfile: Dockerfile  
+              container-image: hickoom/votingapp:v1
 
       - name: Build Docker image
         run: |
